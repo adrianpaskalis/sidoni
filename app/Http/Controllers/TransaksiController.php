@@ -7,14 +7,18 @@ use Illuminate\Http\Request;
 use  App\Transaksi;
 use App\Donatur; 
 use App\KategoriDonasi; 
-use App\Bank;
+use App\Bank; 
+use PDF; 
 
 class TransaksiController extends Controller
 { 
     public function index()
     {
    	// mengambil data dari table pegawai
-       $transaksi = Transaksi::All(); 
+       $transaksi_donasi = Transaksi::All(); 
+       $bank = Bank::All(); 
+       $kategori = KategoriDonasi::All(); 
+       $donatur = Donatur::All(); 
         
        $transaksi=DB::table('transaksi_donasi')->paginate(10);
 
@@ -24,7 +28,13 @@ class TransaksiController extends Controller
 
    public function tambah() 
    {
-       return view('transaksitambah');
+       $transaksi_donasi = Transaksi::All(); 
+       $bank = Bank::All(); 
+       $kategori = KategoriDonasi::All(); 
+       $donatur = Donatur::All(); 
+       
+       return view('transaksitambah',['transaksi' => $transaksi_donasi, 'bank'=>$bank, 'kategori'=> $kategori, 'donatur'=>$donatur ]);
+    
    } 
 
    public function store(Request $request)
@@ -50,14 +60,14 @@ class TransaksiController extends Controller
    // $donatur = Donatur::find($id);
    $transaksi = DB::table('transaksi_donasi')->where('id_transaksi',$id)->get();
    // passing data pegawai yang didapat ke view edit.blade.php
-   return view('transaksiedit',['transaksi' => $transaksi]);
+    return view('transaksiedit',['transaksi' => $transaksi]);
 
    }   
 
    public function update($id, Request $request)
    { 
        { 
-        DB::table('transaksi_donasi')->where('id_transaksi_donasi',$request->id)->update([
+        DB::table('transaksi_donasi')->where('id_transaksi',$request->id)->update([
             'nama_donatur'=>$request->nama_donatur_trans, 
             'nama_kategori'=>$request->nama_kategori_donasi, 
             'nama_bank'=>$request->bank_tujuan, 
@@ -72,7 +82,7 @@ class TransaksiController extends Controller
 
 
        public function delete($id) {
-        DB::table('transaksi_donasi')->where('id_transaksi_donasi', $id)->delete();
+        DB::table('transaksi_donasi')->where('id_transaksi', $id)->delete();
 
         return redirect('/transaksi');
 
@@ -87,7 +97,14 @@ class TransaksiController extends Controller
 
         return view('donaturindex',['donatur' =>$donatur]);
 
-    }
+    } 
+
+    public function downloadPDF()
+                {
+                    $transaksi_donasi = Transaksi::All(); 
+                    $pdf = PDF::loadView('TransaksipdfView',compact('transaksi_donasi'));
+                    return $pdf->download('Transaksi.pdf');
+                }
 
 
 

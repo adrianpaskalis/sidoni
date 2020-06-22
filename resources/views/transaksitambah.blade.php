@@ -25,8 +25,13 @@
 		<div class="form-group"> 
 
                             <label>Donatur </label>
-                                <select class="form-control" name="nama_donatur_trans"> 
-                                <option>adrian</option>
+                               
+                                
+                                 <select class="form-control"  name="nama_donatur_trans ">
+                                @foreach($donatur as $d)
+                                <option value="{{$d->id_donatur}}">{{$d->nama_donatur}}</option>
+                                 @endforeach
+                                </select>
                                                 
                                         </select>
                                          @if($errors->has('nama_donatur_trans'))
@@ -34,19 +39,20 @@
                                               {{ $errors->first('nama_donatur_trans')}}
                                                     </div>
                                                 @endif
-                                                </div>   
+                                </div>   
                                         
 
 
                             
                         <div class="form-group">
                             <label>Kategori Donasi </label>
-                            <select class="form-control" name="nama_kategori_donasi"> 
-                                <option>Uang Rupiah</option>
-                                <option>Uang Dollar </option>
-                                <option>Mobil</option>
-                                <option>Motor</option>
-                            </select>
+                            <select class="form-control"  name="nama_kategori_donasi ">
+                                @foreach($kategori as $k)
+                                <option value="{{$k->id_kategori_donasi}}">{{$k->nama_kategori}}</option>
+                                 @endforeach
+                                </select>
+
+
                             @if($errors->has('nama_kategori_donasi'))
                                 <div class="text-danger">
                                     {{ $errors->first('nama_kategori_donasi')}}
@@ -56,8 +62,14 @@
 
                         <div class="form-group">
                         <label>Bank Tujuan </label>
-                            <select class="form-control" name="bank_tujuan"> 
-                                <option values="1">Bank BNI</option>
+                            
+
+                                
+                                 <select class="form-control"  name="bank_tujuan ">
+                                @foreach($bank as $b)
+                                <option value="{{$b->id_bank}}">{{$b->nama_bank}}</option>
+                                 @endforeach
+                                </select>
                                
                             </select>
                             @if($errors->has('bank_tujuan'))

@@ -24,9 +24,15 @@
 		
 
         <div class="form-group">
-                            <label>ID Trans</label>
-                            <input type="text" name="id_trans" class="form-control" placeholder="Id Trans Aktivitas ..">
- 
+                            <label>ID Trans</label> 
+                        
+                        
+                                 <select class="form-control"  name="id_trans ">
+                                   @foreach($transaksi as $t)
+                                <option value="{{$t->id_transaksi}}">{{$t->id_transaksi}}</option>
+                                 @endforeach
+                                </select>
+                            
                             @if($errors->has('id_trans'))
                                 <div class="text-danger">
                                     {{ $errors->first('id_trans')}}

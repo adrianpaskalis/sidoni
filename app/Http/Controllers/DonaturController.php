@@ -5,18 +5,21 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 use App\Donatur;
+use PDF;
+use App\Exports\DonaturExport;
+use Excel;
 
 class DonaturController extends Controller
 {
     public function index()
     {
     	// mengambil data dari table pegawai
-        $donatur = Donatur::All(); 
+        $donatur = \App\Donatur::All(); 
         
         $donatur=DB::table('donatur')->paginate(10);
  
     
-    	return view('donaturindex',['donatur' => $donatur]);
+    	return view('donaturindex', compact('donatur'));
     }
 
     public function tambah() 
@@ -107,5 +110,17 @@ class DonaturController extends Controller
 
         return view('donaturindex',['donatur' =>$donatur]);
 
+    } 
+
+    public function downloadPDF()
+    {
+        $donatur = Donatur::All(); 
+    	$pdf = PDF::loadView('DonaturpdfView',compact('donatur'));
+		return $pdf->download('donatur.pdf');
     }
+
+    //public function downloadExcel()
+	//{
+		//return Excel::download(new DonaturExport, 'donatur.xlsx');
+	//}
 } 

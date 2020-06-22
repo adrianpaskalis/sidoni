@@ -5,13 +5,15 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 use App\Aktivitas;
-
+use App\Transaksi; 
+use PDF;
 class AktivitasController extends Controller
 { 
             public function index()
             {
                 // mengambil data dari table pegawai
-                $aktivitas = Aktivitas::All(); 
+                $aktivitas = Aktivitas::All();
+                $transaksi = Transaksi::All(); 
                 
                 $aktivitas=DB::table('aktivitas')->paginate(10);
         
@@ -21,8 +23,12 @@ class AktivitasController extends Controller
 
             public function tambah() 
             {
-                return view('aktivitastambah');
-            }
+             $aktivitas = Aktivitas::All();
+             $transaksi = Transaksi::All();
+              
+                return view('aktivitastambah',['aktivitas' => $aktivitas,'transaksi' => $transaksi]);
+    }
+            
 
             public function store(Request $request)
             {
@@ -83,6 +89,14 @@ class AktivitasController extends Controller
 
                     return view('aktivitasindex',['aktivitas' =>$aktivitas]);
 
+                }
+
+
+                public function downloadPDF()
+                {
+                    $aktivitas = Aktivitas::All(); 
+                    $pdf = PDF::loadView('AktivitaspdfView',compact('aktivitas'));
+                    return $pdf->download('Aktivitas.pdf');
                 }
 } 
     
