@@ -37,7 +37,7 @@
                         <a class="nav-link" href="transaksi">Transaksi <span class="sr-only">(current)</span></a></li>
                         
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#laporan">Lihat Laporan</a></li>
+                            <a class="nav-link js-scroll-trigger" href="chart">Lihat Laporan</a></li>
                     </ul>
                 </div>
     </nav>
@@ -92,9 +92,9 @@
 			<td>{{ $t->tanggal_transaksi }}</td>
 			<td>{{$t->nominal_donasi}}</td>
 			<td>{{ $t->keterangan_donasi }}</td> 
-			<td>{{ $t->nama_donatur }}</td> 
-			<td>{{ $t->nama_kategori }}</td> 
-			<td>{{ $t->nama_bank }}</td> 
+			<td>{{ $t->nama_donatur_trans }}</td> 
+			<td>{{ $t->nama_kategori_trans }}</td> 
+			<td>{{ $t->nama_bank_trans }}</td> 
 			
            
 

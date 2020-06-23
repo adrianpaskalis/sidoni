@@ -58,7 +58,8 @@
                     <br/>
                     <br/> 
 
-					<p>Cari Data Kategori Donasi :</p>
+
+					<p>Cari Data Kategori Donasi : </p>
 			<form action="/kategori/find" method="GET">
 				<input type="text" name="find" placeholder="Find Nama Kategori Donasi .." value="{{ old('find') }}">
 				<input type="submit" value="find">

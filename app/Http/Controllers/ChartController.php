@@ -37,11 +37,10 @@ class ChartController extends Controller
         $kategori_donasi = [];
         $nominaldonasi = [];
             foreach ($transaksi as $transaksi){
-                $kategori_donasi [] = $transaksi->nama_kategori;
+                $kategori_donasi [] = $transaksi->nama_kategori_trans;
                 $nominaldonasi [] = $transaksi->nominal_donasi;
             }
-           // dd(json_encode($jenis_pemasukan));
-           //dd($pemasukan);
+           
         
         return view('transaksichart',compact('kategori_donasi','nominaldonasi'));
     }

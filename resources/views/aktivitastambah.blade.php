@@ -24,10 +24,10 @@
 		
 
         <div class="form-group">
-                            <label>ID Trans</label> 
+                            <label for="id_trans">ID Trans</label> 
                         
                         
-                                 <select class="form-control"  name="id_trans ">
+                                 <select class="form-control" id="id_trans" name="id_trans ">
                                    @foreach($transaksi as $t)
                                 <option value="{{$t->id_transaksi}}">{{$t->id_transaksi}}</option>
                                  @endforeach

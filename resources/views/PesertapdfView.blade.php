@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Donatur PDF</title>
+	<title>Peserta PDF</title>
 	<style type="text/css">
 		table{
 			width: 100%;
@@ -14,7 +14,7 @@
 </head>
 <body>
 
-<h2>Transaksi PDF File</h2>
+<h2>Peserta PDF File</h2>
 
 <table class="table table-borderless">
 <thead> 
@@ -31,14 +31,15 @@
 
                 </thead>
 <tbody>
-@foreach($transaksi_donasi as $t)
+@foreach($peserta as $p)
 <tr>
-    <td>{{ $t->tanggal_transaksi }}</td>
-    <td>{{$t->nominal_donasi}}</td>
-    <td>{{ $t->keterangan_donasi }}</td> 
-    <td>{{ $t->nama_donatur }}</td> 
-    <td>{{ $t->nama_kategori }}</td> 
-    <td>{{ $t->nama_bank }}</td> 
+  	<td>{{ $p->nama_peserta }}</td>
+            <td>{{ $p->tgl_lahir_peserta }}</td>
+            <td>{{ $p->jenis_kelamin_peserta }}</td>
+            <td>{{ $p->alamat_peserta }}</td>
+            <td>{{ $p->WA_peserta }}</td>
+			<td>{{ $p->nama_aktivitas }}</td>
+			<td>{{ $p->tanggal_aktivitas }}</td>
     @endforeach
 </table>
 </body>

@@ -7,6 +7,41 @@
         <title>SIDONI PETERPAN</title>
     </head>
 	<body>
+
+
+     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand mb-0 h1" href="homeafter">
+        <img src="style/assets/img/Slogo.png" width="30" height="30" class="d-inline-block align-top" alt="" loading="lazy">
+            SIDONI
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+
+
+          <div class="collapse navbar-collapse" id="navbarResponsive">
+                    <ul class="navbar-nav ml-auto">
+                        
+                        <li class="nav-item">
+                        <a class="nav-link" href="donatur">Donatur <span class="sr-only">(current)</span></a></li>
+                        
+                        <li class="nav-item">
+                        <a class="nav-link" href="kategori">Kategori Donasi <span class="sr-only">(current)</span></a></li>
+                        
+                        <li class="nav-item">
+                        <a class="nav-link" href="aktivitas">Aktivitas <span class="sr-only">(current)</span></a></li>
+
+                        <li class="nav-item">
+                        <a class="nav-link" href="peserta">Peserta <span class="sr-only">(current)</span></a></li>
+
+                        <li class="nav-item">
+                        <a class="nav-link" href="transaksi">Transaksi <span class="sr-only">(current)</span></a></li>
+                        
+                        <li class="nav-item">
+                            <a class="nav-link js-scroll-trigger" href="chart">Lihat Laporan</a></li>
+                    </ul>
+                </div>
+    </nav>
         <div class="container">
             <div class="card mt-5">
                 <div class="card-header text-center">
@@ -16,7 +51,7 @@
                     <a href="/transaksi" class="btn btn-primary">Kembali</a>
                     <br/>
                     <br/>
-	
+	                      
 	
  
 	<form action="/transaksi/store" method="post">
@@ -106,27 +141,20 @@
 
                         <div class="form-group">
                             <label>Keterangan Donasi</label>
-                            <textarea name="keterangan_donasi" class="form-control" placeholder="Keterangan Donasi Transaksi ..">
+                            <input type="text" name="keterangan_donasi" class="form-control" placeholder="Keterangan Donasi Transaksi ..">
  
                             @if($errors->has('keterangan_donasi'))
                                 <div class="text-danger">
                                     {{ $errors->first('keterangan_donasi')}}
                                 </div>
                             @endif 
- 
-                        </div>  
-
-                       
-
-
-                        
-
-
-            
+                         </div>
+        
+                            <input type="submit" class="btn btn-success" value="Simpan">
+                        </div>
 	
-		<input type="submit" value="Simpan Data">
+	                   
 	</form>
- 
 </body>
 </html>
 

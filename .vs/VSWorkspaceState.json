@@ -2,12 +2,13 @@
   "ExpandedNodes": [
     "",
     "\\app",
-    "\\app\\Exports",
+    "\\app\\Http",
     "\\app\\Http\\Controllers",
-    "\\config",
+    "\\resources",
     "\\resources\\views",
-    "\\resources\\views\\auth"
+    "\\resources\\views\\auth",
+    "\\routes"
   ],
-  "SelectedNode": "\\config\\app.php",
+  "SelectedNode": "\\resources\\views\\pesertaedit.blade.php",
   "PreviewInSolutionExplorer": false
 }

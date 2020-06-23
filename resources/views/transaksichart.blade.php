@@ -67,7 +67,7 @@
     
     Highcharts.chart('container', {
         title: {
-            text: 'Laporan Transaksi Donasi Tahun'
+            text: 'Laporan Transaksi per Kategori Donasi'
         },
         subtitle: {
             text: 'SIDONI'

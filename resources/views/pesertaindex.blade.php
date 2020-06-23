@@ -56,6 +56,11 @@
 				<div class="card-body">
                     <a href="/peserta/tambah" class="btn btn-primary">Tambah Peserta Baru</a>
                     <br/>
+                    <br/>
+
+                    	<div class="card-body">
+					<a href="{{action('PesertaController@downloadPDF')}}" class="btn btn-primary">Download PDF</a></td>
+                    <br/>
                     <br/> 
 
 					<p>Cari Data Donatur :</p>

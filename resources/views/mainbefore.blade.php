@@ -49,7 +49,7 @@
                         <a class="nav-link" href="transaksi">Transaksi <span class="sr-only">(current)</span></a></li>
                         -->
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="#register">Register</a></li>
+                            <a class="nav-link js-scroll-trigger" href="register">Register</a></li>
                     </ul>
                 </div>
             </div>

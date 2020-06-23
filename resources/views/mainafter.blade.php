@@ -49,7 +49,7 @@
                         <a class="nav-link" href="transaksi">Transaksi <span class="sr-only">(current)</span></a></li>
                         
                         <li class="nav-item">
-                            <a class="nav-link js-scroll-trigger" href="laporan">Lihat Laporan</a></li>
+                            <a class="nav-link js-scroll-trigger" href="chart">Lihat Laporan</a></li>
                     </ul>
                 </div>
             </div>
@@ -75,7 +75,7 @@
                     <div class="col-md-10 col-lg-8 mx-auto text-center">
                         <i class="far fa-paper-plane fa-2x mb-2 text-white"></i>
                         <h2 class="text-white mb-5">Lihat Progres Donasi</h2>
-                        <a class="btn btn-primary" href="#">Laporan</a>
+                       
                         <a class="btn btn-primary" href="chart">Grafik</a>
                     </div>
                 </div>

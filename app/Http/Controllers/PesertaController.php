@@ -96,6 +96,12 @@ class PesertaController extends Controller
         return view('pesertaindex',['peserta' =>$peserta]);
 
     }
+     public function downloadPDF()
+                {
+                    $peserta = Peserta::All(); 
+                    $pdf = PDF::loadView('PesertapdfView',compact('peserta'));
+                    return $pdf->download('Peserta.pdf');
+                }
 
 
 }

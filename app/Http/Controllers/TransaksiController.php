@@ -40,9 +40,9 @@ class TransaksiController extends Controller
    public function store(Request $request)
    {
        DB::table('transaksi_donasi')->insert([ 
-            'nama_donatur'=>$request->nama_donatur_trans, 
-            'nama_kategori'=>$request->nama_kategori_donasi, 
-            'nama_bank'=>$request->bank_tujuan, 
+            'nama_donatur_trans'=>$request->nama_donatur_trans, 
+            'nama_kategori_trans'=>$request->nama_kategori_donasi, 
+            'nama_bank_trans'=>$request->bank_tujuan, 
            'tanggal_transaksi'=>$request->tanggal_transaksi, 
            'nominal_donasi'=>$request->nominal_donasi, 
            'keterangan_donasi'=>$request->keterangan_donasi
@@ -68,9 +68,9 @@ class TransaksiController extends Controller
    { 
        { 
         DB::table('transaksi_donasi')->where('id_transaksi',$request->id)->update([
-            'nama_donatur'=>$request->nama_donatur_trans, 
-            'nama_kategori'=>$request->nama_kategori_donasi, 
-            'nama_bank'=>$request->bank_tujuan, 
+            'nama_donatur_trans'=>$request->nama_donatur_trans, 
+            'nama_kategori_trans'=>$request->nama_kategori_donasi, 
+            'nama_bank_trans'=>$request->bank_tujuan, 
            'tanggal_transaksi'=>$request->tanggal_transaksi, 
            'nominal_donasi'=>$request->nominal_donasi, 
            'keterangan_donasi'=>$request->keterangan_donasi
