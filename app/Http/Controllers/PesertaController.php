@@ -6,7 +6,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
 use App\Peserta;
-
+use App\Aktivitas; 
 
 
 class PesertaController extends Controller
@@ -23,15 +23,24 @@ class PesertaController extends Controller
     	return view('pesertaindex',['peserta' => $peserta]);
     } 
 
-    public function tambah() 
+    public function tambah()
+
     {
-        return view('pesertatambah');
+    $peserta = Peserta::All();
+        $aktivitas = Aktivitas::All(); 
+       
+       return view('pesertatambah',['peserta' => $peserta, 'aktivitas'=>$aktivitas ]);
+      
     }
 
     public function store(Request $request)
     {
         DB::table('peserta')->insert([
             'nama_peserta'=>$request->nama_peserta,
+            'tgl_lahir_peserta'=>$request->tgl_lahir_peserta,
+            'jenis_kelamin_peserta'=>$request->gender_peserta,
+            'alamat_peserta'=>$request->alamat_peserta,
+            'WA_peserta'=>$request->WA_peserta,
             'id_aktivitas'=>$request->id_aktivitas,
             'nama_aktivitas'=>$request->nama_aktivitas,
             'tanggal_aktivitas'=>$request->tanggal_aktivitas
@@ -56,6 +65,10 @@ class PesertaController extends Controller
         { 
             DB::table('peserta')->where('id_peserta',$request->id)->update([
                 'nama_peserta'=>$request->nama_peserta,
+                'tgl_lahir_peserta'=>$request->tgl_lahir,
+                'jenis_kelamin_peserta'=>$request->gender,
+                'alamat_peserta'=>$request->alamat,
+                'WA_peserta'=>$request->WA_peserta, 
                 'id_aktivitas'=>$request->id_aktivitas,
                 'nama_aktivitas'=>$request->nama_aktivitas,
                 'tanggal_aktivitas'=>$request->tanggal_aktivitas

@@ -93,7 +93,7 @@ Route::get('/transaksi/download-pdf','TransaksiController@downloadPDF');
 
 
 // chart controller 
-Route::get('chart', 'ChartController@index');
+Route::get('chart', 'ChartController@grafik');
 
 
 

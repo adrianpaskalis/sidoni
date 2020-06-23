@@ -69,7 +69,10 @@
                             <tr>
 							
 									<th>Nama Peserta</th>
-									<th>ID Aktivitas</th>
+                                    <th>TTL Peserta</th>
+                                    <th>Gender Peserta</th>
+                                    <th>Alamat Peserta</th>
+                                    <th>WA Peserta</th>
 									<th>Nama Aktivitas</th>
 									<th>Tanggal Aktivitas</th>
 									<th>Action</th>
@@ -80,7 +83,10 @@
 		@foreach($peserta as $p)
 		<tr>
 			<td>{{ $p->nama_peserta }}</td>
-			<td>{{$p->nama_aktivitas}}</td>
+            <td>{{ $p->tgl_lahir_peserta }}</td>
+            <td>{{ $p->jenis_kelamin_peserta }}</td>
+            <td>{{ $p->alamat_peserta }}</td>
+            <td>{{ $p->WA_peserta }}</td>
 			<td>{{ $p->nama_aktivitas }}</td>
 			<td>{{ $p->tanggal_aktivitas }}</td>
            
