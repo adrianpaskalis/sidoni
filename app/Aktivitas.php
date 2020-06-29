@@ -13,6 +13,6 @@ class Aktivitas extends Model
  } 
  public function transaksi()
     {
-    	return $this->belongsToMany('App\Transaksi');
+    	return $this->hasMany('App\Transaksi');
     } 
 }

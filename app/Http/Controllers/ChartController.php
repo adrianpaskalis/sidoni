@@ -44,4 +44,34 @@ class ChartController extends Controller
         
         return view('transaksichart',compact('kategori_donasi','nominaldonasi'));
     }
+
+     public function donaturGrafik()
+    {
+        
+        $transaksi = Transaksi::all(); 
+        $donatur = [];
+        $nominaldonasi = [];
+            foreach ($transaksi as $transaksi){
+                $donatur [] = $transaksi->nama_donatur;
+                $nominaldonasi [] = $transaksi->nominal_donasi;
+            }
+           
+        
+        return view('donaturchart',compact('donatur','nominaldonasi'));
+    }
+
+    public function aktivitasGrafik()
+    {
+        
+        $transaksi = Transaksi::all(); 
+        $aktivitas = [];
+        $nominaldonasi = [];
+            foreach ($transaksi as $transaksi){
+                $aktivitas [] = $transaksi->nama_aktivitas;
+                $nominaldonasi [] = $transaksi->nominal_donasi;
+            }
+           
+        
+        return view('aktivitaschart',compact('aktivitas','nominaldonasi'));
+    }
 } 

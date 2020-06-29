@@ -62,16 +62,16 @@
                             <label>Donatur </label>
                                
                                 
-                                 <select class="form-control"  name="nama_donatur_trans ">
+                                 <select class="form-control"  name="nama_donatur">
                                 @foreach($donatur as $d)
-                                <option value="{{$d->id_donatur}}">{{$d->nama_donatur}}</option>
+                                <option value="{{$d->nama_donatur}}">{{$d->nama_donatur}}</option>
                                  @endforeach
                                 </select>
                                                 
                                         </select>
-                                         @if($errors->has('nama_donatur_trans'))
+                                         @if($errors->has('nama_donatur'))
                                            <div class="text-danger">
-                                              {{ $errors->first('nama_donatur_trans')}}
+                                              {{ $errors->first('nama_donatur')}}
                                                     </div>
                                                 @endif
                                 </div>   
@@ -81,16 +81,16 @@
                             
                         <div class="form-group">
                             <label>Kategori Donasi </label>
-                            <select class="form-control"  name="nama_kategori_donasi ">
+                            <select class="form-control"  name="nama_kategori">
                                 @foreach($kategori as $k)
-                                <option value="{{$k->id_kategori_donasi}}">{{$k->nama_kategori}}</option>
+                                <option value="{{$k->nama_kategori}}">{{$k->nama_kategori}}</option>
                                  @endforeach
                                 </select>
 
 
-                            @if($errors->has('nama_kategori_donasi'))
+                            @if($errors->has('nama_kategori'))
                                 <div class="text-danger">
-                                    {{ $errors->first('nama_kategori_donasi')}}
+                                    {{ $errors->first('nama_kategori')}}
                                 </div>
                             @endif
                         </div>  
@@ -100,9 +100,9 @@
                             
 
                                 
-                                 <select class="form-control"  name="bank_tujuan ">
+                                 <select class="form-control"  name="bank_tujuan">
                                 @foreach($bank as $b)
-                                <option value="{{$b->id_bank}}">{{$b->nama_bank}}</option>
+                                <option value="{{$b->nama_bank}}">{{$b->nama_bank}}</option>
                                  @endforeach
                                 </select>
                                
@@ -112,7 +112,28 @@
                                     {{ $errors->first('bank_tujuan')}}
                                 </div>
                             @endif
+                        </div>
+
+                        <div class="form-group">
+                        <label>Aktivitas Tujuan Donasi </label>
+
+                         <select class="form-control"  name="nama_aktivitas">
+                                @foreach($aktvitas as $a)
+                                <option value="{{$a->nama_aktivitas}}">{{$a->nama_aktivitas}}</option>
+                                 @endforeach
+                                </select>
+                               
+                            </select>
+                            @if($errors->has('nama_aktivitas'))
+                                <div class="text-danger">
+                                    {{ $errors->first('nama_aktivitas')}}
+                                </div>
+                            @endif
                         </div>  
+
+
+
+                                
                         <div class="form-group">
 
                         <label>Tanggal Transaksi</label>
@@ -149,7 +170,8 @@
                                 </div>
                             @endif 
                          </div>
-        
+
+                         <div>
                             <input type="submit" class="btn btn-success" value="Simpan">
                         </div>
 	

@@ -25,7 +25,7 @@ class Transaksi extends Model
 
     public function Aktivitas()
     {
-    	return $this->hasMany('App\Aktivitas');
+    	return $this->belongsToMany('App\Aktivitas');
     } 
 
 

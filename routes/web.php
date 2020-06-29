@@ -94,6 +94,8 @@ Route::get('/transaksi/download-pdf','TransaksiController@downloadPDF');
 
 // chart controller 
 Route::get('chart', 'ChartController@grafik');
+Route::get('donaturchart', 'ChartController@donaturGrafik');
+Route::get('aktivitaschart', 'ChartController@aktivitasGrafik');
 
 
 

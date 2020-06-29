@@ -79,22 +79,24 @@
 									<th>Tanggal Transaksi</th>
 									<th>Nominal Donasi</th>
 									<th>Keterangan Donasi</th>
-									<th>Donatur</th>
+									<th>Donatur</th> 
                                     <th>Kategori Donasi</th>
-                                    <th>Bank</th> 
+                                    <th>Bank</th>
+                                    <th>Aktivitas Tujuan </th>
 									<th>Action</th>
 								</tr> 
 
 						</thead>
         <tbody>
-		@foreach($transaksi_donasi as $t)
+		@foreach($transaksi as $t)
 		<tr>
 			<td>{{ $t->tanggal_transaksi }}</td>
 			<td>{{$t->nominal_donasi}}</td>
 			<td>{{ $t->keterangan_donasi }}</td> 
-			<td>{{ $t->nama_donatur_trans }}</td> 
-			<td>{{ $t->nama_kategori_trans }}</td> 
-			<td>{{ $t->nama_bank_trans }}</td> 
+			<td>{{ $t->nama_donatur }}</td> 
+			<td>{{ $t->nama_kategori }}</td> 
+			<td>{{ $t->nama_bank }}</td>
+            <td>{{ $t ->nama_aktivitas}} </td>
 			
            
 
@@ -109,9 +111,9 @@
 		</tbody>
 	</table>
 	<br> 
-	Halaman : {{ $transaksi_donasi->currentPage() }} <br/>
-	Jumlah Data : {{ $transaksi_donasi->total() }} <br/>
+	Halaman : {{ $transaksi->currentPage() }} <br/>
+	Jumlah Data : {{ $transaksi->total() }} <br/>
 	</br>
-	{{ $transaksi_donasi->links()}}
+	{{ $transaksi->links()}}
 </body>
 </html>

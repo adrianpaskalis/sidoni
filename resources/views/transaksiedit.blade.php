@@ -25,11 +25,11 @@
 
 		<div class="form-group">
                             <label>Nama Donatur</label>
-                            <input type="text" name="nama_donatur_trans" class="form-control" placeholder="Nama Donatur .." value=" {{ $t->nama_donatur }}">
+                            <input type="text" name="nama_donatur" class="form-control" placeholder="Nama Donatur .." value=" {{ $t->nama_donatur }}">
  
-                            @if($errors->has('nama_donatur_trans'))
+                            @if($errors->has('nama_donatur'))
                                 <div class="text-danger">
-                                    {{ $errors->first('nama_donatur_trans')}}
+                                    {{ $errors->first('nama_donatur')}}
                                 </div>
                             @endif
                         </div>
@@ -38,11 +38,11 @@
 
                         <div class="form-group">
                             <label>Kategori Donasi </label>
-                            <input type="text" name="nama_kategori_donasi" class="form-control" placeholder="Kategori Donasi .." value=" {{ $t->nama_kategori }}">
+                            <input type="text" name="nama_kategori" class="form-control" placeholder="Kategori Donasi .." value=" {{ $t->nama_kategori }}">
  
-                            @if($errors->has('nama_kategori_donasi'))
+                            @if($errors->has('nama_kategori'))
                                 <div class="text-danger">
-                                    {{ $errors->first('nama_kategori_donasi')}}
+                                    {{ $errors->first('nama_kategori')}}
                                 </div>
                             @endif
                         </div>
@@ -57,6 +57,20 @@
                             @if($errors->has('bank_tujuan'))
                                 <div class="text-danger">
                                     {{ $errors->first('bank_tujuan')}}
+                                </div>
+                            @endif
+ 
+                        </div>
+
+
+        <div class="form-group">
+                            <label>Aktivitas Tujuan Donasi </label>
+                            <input type="text" name="nama_aktivitas" 
+                            placeholder="Nama Aktivitas Tujuan" required="required" value="{{ $t->nama_aktivitas }}">
+ 
+                            @if($errors->has('nama_aktivitas'))
+                                <div class="text-danger">
+                                    {{ $errors->first('nama_aktivitas')}}
                                 </div>
                             @endif
  

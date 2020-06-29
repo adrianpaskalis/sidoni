@@ -4,9 +4,10 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Schema;
 use Illuminate\Http\Request;
-use  App\Transaksi;
+use App\Transaksi;
 use App\Donatur; 
-use App\KategoriDonasi; 
+use App\KategoriDonasi;
+use App\Aktivitas;
 use App\Bank; 
 use PDF; 
 
@@ -15,39 +16,42 @@ class TransaksiController extends Controller
     public function index()
     {
    	// mengambil data dari table pegawai
-       $transaksi_donasi = Transaksi::All(); 
+       $transaksi= Transaksi::All(); 
        $bank = Bank::All(); 
        $kategori = KategoriDonasi::All(); 
-       $donatur = Donatur::All(); 
+       $donatur = Donatur::All();
+         $aktivitas = Aktivitas::All();
         
        $transaksi=DB::table('transaksi_donasi')->paginate(10);
 
    
-       return view('transaksiindex',['transaksi_donasi' => $transaksi]);
+       return view('transaksiindex',['transaksi' => $transaksi, 'bank'=>$bank, 'kategori'=> $kategori, 'aktvitas'=> $aktivitas,'donatur'=>$donatur ]);
+
    } 
 
    public function tambah() 
    {
-       $transaksi_donasi = Transaksi::All(); 
+       $transaksi = Transaksi::All(); 
        $bank = Bank::All(); 
        $kategori = KategoriDonasi::All(); 
-       $donatur = Donatur::All(); 
+       $donatur = Donatur::All();
+       $aktivitas = Aktivitas::All();
        
-       return view('transaksitambah',['transaksi' => $transaksi_donasi, 'bank'=>$bank, 'kategori'=> $kategori, 'donatur'=>$donatur ]);
+       return view('transaksitambah',['transaksi' => $transaksi, 'bank'=>$bank, 'kategori'=> $kategori, 'aktvitas'=> $aktivitas,'donatur'=>$donatur ]);
     
    } 
 
    public function store(Request $request)
    {
        DB::table('transaksi_donasi')->insert([ 
-            'nama_donatur_trans'=>$request->nama_donatur_trans, 
-            'nama_kategori_trans'=>$request->nama_kategori_donasi, 
-            'nama_bank_trans'=>$request->bank_tujuan, 
+            'nama_donatur'=>$request->nama_donatur, 
+            'nama_kategori'=>$request->nama_kategori, 
+            'nama_bank'=>$request->bank_tujuan,
+            'nama_aktivitas'=>$request->nama_aktivitas,
            'tanggal_transaksi'=>$request->tanggal_transaksi, 
            'nominal_donasi'=>$request->nominal_donasi, 
            'keterangan_donasi'=>$request->keterangan_donasi
-           
-         
+          
            
            ]);
 
@@ -68,9 +72,10 @@ class TransaksiController extends Controller
    { 
        { 
         DB::table('transaksi_donasi')->where('id_transaksi',$request->id)->update([
-            'nama_donatur_trans'=>$request->nama_donatur_trans, 
-            'nama_kategori_trans'=>$request->nama_kategori_donasi, 
-            'nama_bank_trans'=>$request->bank_tujuan, 
+            'nama_donatur'=>$request->nama_donatur, 
+            'nama_kategori'=>$request->nama_kategori, 
+            'nama_bank'=>$request->bank_tujuan,
+            'nama_aktivitas'=>$request->nama_aktivitas,
            'tanggal_transaksi'=>$request->tanggal_transaksi, 
            'nominal_donasi'=>$request->nominal_donasi, 
            'keterangan_donasi'=>$request->keterangan_donasi
